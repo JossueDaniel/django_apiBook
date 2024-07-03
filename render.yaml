@@ -2,7 +2,7 @@ databases:
   - name: apidb
     plan: free
     databaseName: apidb
-    user: apiBook
+    user: apidb
 
 services:
   - type: web
