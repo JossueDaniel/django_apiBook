@@ -66,7 +66,7 @@ ROOT_URLCONF = 'django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -154,3 +154,6 @@ SPECTACULAR_SETTINGS = {
     'DESCRIPTION': 'Aplicación que permite la creación y edición de autores y libros',
     'VERSION': '1.0.0',
 }
+
+# Archivos estáticos
+STATIC_ROOT = BASE_DIR / 'static'

@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  api-web:
+    build: .
+    command: ["./wait-for-it.sh", "db:5432", "--", "uwsgi", "--ini",
+              "/src/config/uwsgi/uwsgi.ini"]
+    restart: unless-stopped
+    volumes:
+      - .:/src
+    ports:
+      - target: 8000
+        published: 5001
+    environment:
+      - DJANGO_SETTINGS_MODULE=django_project.settings.prod
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx
+    restart: always
+    volumes:
+      - ./config/nginx:/etc/nginx/templates
+      - .:/src
+    ports:
+      - "80:80"
