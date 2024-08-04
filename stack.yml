@@ -1,6 +1,8 @@
+version: '3.8'
+
 services:
   db:
-    image: postgres
+    image: postgres:latest
     restart: always
     volumes:
       - ./data/db:/var/lib/postgresql/data
@@ -8,17 +10,20 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    networks:
+      - api-net
 
   api-web:
-    build: .
-    command: ["./wait-for-it.sh", "db:5432", "--", "uwsgi", "--ini",
-              "/src/config/uwsgi/uwsgi.ini"]
+    image: jossuedaniel/api1-jdeg:api3.0
+    command: ["./wait-for-it.sh", "db:5432", "--", "uwsgi", "--ini", "/src/config/uwsgi/uwsgi.ini"]
     restart: unless-stopped
     volumes:
       - .:/src
     ports:
       - target: 8000
         published: 5001
+        protocol: tcp
+        mode: host
     environment:
       - DJANGO_SETTINGS_MODULE=django_project.settings.prod
       - POSTGRES_DB=postgres
@@ -26,6 +31,8 @@ services:
       - POSTGRES_PASSWORD=postgres
     depends_on:
       - db
+    networks:
+      - api-net
 
   nginx:
     image: nginx
@@ -35,3 +42,9 @@ services:
       - .:/src
     ports:
       - "8023:8023"
+    networks:
+      - api-net
+
+networks:
+  api-net:
+    external: true

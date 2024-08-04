@@ -3,8 +3,8 @@ upstream uwsgi_app {
 }
 
 server {
-    listen 80;
-    server_name www.jdegapiproject.com jdegapiproject.com;
+    listen 8023;
+    server_name localhost;
     error_log stderr warn;
     access_log /dev/stdout main;
 
