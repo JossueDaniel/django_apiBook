@@ -47,4 +47,4 @@ services:
 
 networks:
   api-net:
-    external: true
+    driver: overlay
