@@ -4,11 +4,12 @@ import dj_database_url
 from .base import *
 
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+# Establece los host que requieren
+ALLOWED_HOSTS = []
 
-
+# Se espcifica la base de datos que se va a utilizar
 DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL'),
