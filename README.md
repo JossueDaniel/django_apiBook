@@ -83,3 +83,11 @@ http://localhost:8000/
 | PUT      | /api/author/{id}/   | Actualiza un autor             |
 | DELETE   | /api/author/{id}/   | Elimina  un autor              |
 
+### Book 
+| Método   | Endpoint            | Descripción                    |
+|----------|---------------------|--------------------------------|
+| GET      | /api/libro/         | Lista todos los libros         |
+| POST     | /api/libro/         | Crea un nuevo libro            |
+| GET      | /api/libro/{id}/    | Obtiene detalles de un libro   |
+| PUT      | /api/libro/{id}/    | Actualiza un libro             |
+| DELETE   | /api/libro/{id}/    | Elimina  un libro              |
