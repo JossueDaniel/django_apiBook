@@ -47,3 +47,14 @@ Crear un archivo .env en la raíz del proyecto
 ```plaintext
 SECRET_KEY=clave-secreta-django
 ```
+
+### 3. Construir y levantar los contenedores
+```bash
+docker compose up -d --build
+```
+
+- El contendor de la aplicación web se ejecuta en entrono de desarrollo, si se requiere ejecutar en un entorno de producción se debe especificar en la variable de entorno del contenedor en el archivo compose.yml las configuraciones del archivo prod.py que es para entorno de producción. **(opcional)** 
+
+```plaintex
+DJANGO_SETTINGS_MODULE=django_project.settings.prod
+```
