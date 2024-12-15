@@ -12,7 +12,8 @@ Este proyecto es un aplicación web que está desarrollado con python y Django q
 - docker
 - docker-compose
 
-## Instalación
+## Estructura del proyecto
+```plaintext
 django_apiBook/
 ├── Dockerfile
 ├── compose.yml
@@ -26,3 +27,4 @@ django_apiBook/
 └── config/
     ├── settings.py
     └── urls.py
+```
