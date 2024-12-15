@@ -31,3 +31,13 @@ django_apiBook/
             ├── local.py
             └── prod.py
 ```
+
+## Configuración y ejecución
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/JossueDaniel/django_apiBook.git
+```
+
+```bash
+cd django_apiBook
+```
