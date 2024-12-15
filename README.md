@@ -71,3 +71,13 @@ docker compose exec web python manage.py createsuperuser
 
 ### 6. Ingresar a la aplicación
 http://localhost:8000/
+
+## Endpoints disponibles
+
+### Author 
+| Método   | Endpoint | Descripción |
+|----------|----------|----------|
+| GET      | /api/author/   | Lista todos los autores   |
+| POST     | /api/author/  | Crea un nuevo autor   |
+| GET    | /api/author/{id}   | Obtiene detalles de un autor   |
+
