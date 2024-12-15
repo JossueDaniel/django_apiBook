@@ -58,3 +58,16 @@ docker compose up -d --build
 ```plaintex
 DJANGO_SETTINGS_MODULE=django_project.settings.prod
 ```
+
+### 4. Ejecutar las migraciones
+```bash
+docker compose exec web python manage.py migrate
+```
+
+### 5. Crear un superusuario (opcional)
+```bash
+docker compose exec web python manage.py createsuperuser
+```
+
+### 6. Ingresar a la aplicación
+http://localhost:8000/
