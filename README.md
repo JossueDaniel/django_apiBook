@@ -75,9 +75,11 @@ http://localhost:8000/
 ## Endpoints disponibles
 
 ### Author 
-| Método   | Endpoint | Descripción |
-|----------|----------|----------|
-| GET      | /api/author/   | Lista todos los autores   |
-| POST     | /api/author/  | Crea un nuevo autor   |
-| GET    | /api/author/{id}   | Obtiene detalles de un autor   |
+| Método   | Endpoint            | Descripción                    |
+|----------|---------------------|--------------------------------|
+| GET      | /api/author/        | Lista todos los autores        |
+| POST     | /api/author/        | Crea un nuevo autor            |
+| GET      | /api/author/{id}/   | Obtiene detalles de un autor   |
+| PUT      | /api/author/{id}/   | Actualiza un autor             |
+| DELETE   | /api/author/{id}/   | Elimina  un autor              |
 
