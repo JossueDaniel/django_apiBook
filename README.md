@@ -18,13 +18,16 @@ django_apiBook/
 ├── Dockerfile
 ├── compose.yml
 ├── requirements.txt
-├── manage.py
-├── api/
-│   ├── views.py
-│   ├── serializers.py
-│   ├── models.py
-│   └── urls.py
-└── config/
-    ├── settings.py
-    └── urls.py
+└── django_project/
+    ├── manage.py
+    ├── apis/
+    ├── book/
+    ├── pages/
+    ├── static/
+    ├── templates/
+    └── django_project/
+        └── settings/
+            ├── base.py
+            ├── local.py
+            └── prod.py
 ```
