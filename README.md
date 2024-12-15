@@ -41,3 +41,9 @@ git clone https://github.com/JossueDaniel/django_apiBook.git
 ```bash
 cd django_apiBook
 ```
+
+### 2. Establecer las variables de entorno
+Crear un archivo .env en la raíz del proyecto
+```plaintext
+SECRET_KEY=clave-secreta-django
+```
