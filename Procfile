@@ -1,1 +1,1 @@
-web: gunicorn django_project.wsgi --env DJANGO_SETTINGS_MODULE=django_project.settings.prod
+web: python manage.py collectstatic --settings=django_project.settings.prod && gunicorn django_project.wsgi --env DJANGO_SETTINGS_MODULE=django_project.settings.prod
