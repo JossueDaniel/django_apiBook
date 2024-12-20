@@ -13,7 +13,7 @@ COPY . /code/
 
 RUN mkdir -p /code/staticfiles
 
-RUN python manage.py collectstatic --settings=chat_project.settings.prod
+RUN python manage.py collectstatic --settings=django_project.settings.prod
 
 EXPOSE 8000
 
