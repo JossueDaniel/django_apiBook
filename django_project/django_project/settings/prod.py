@@ -7,7 +7,7 @@ from .base import *
 DEBUG = False
 
 # Establece los host que requieren
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://web-production-8c284.up.railway.app/']
 
 # Se espcifica la base de datos que se va a utilizar
 # DATABASES = {
