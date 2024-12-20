@@ -1,5 +1,6 @@
 import os
 import dj_database_url
+from django.conf.global_settings import CSRF_TRUSTED_ORIGINS
 
 from .base import *
 
@@ -7,7 +8,7 @@ from .base import *
 DEBUG = False
 
 # Establece los host que requieren
-ALLOWED_HOSTS = ['web-production-8c284.up.railway.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['web-production-8c284.up.railway.app']
 
 # Se espcifica la base de datos que se va a utilizar
 # DATABASES = {
@@ -32,3 +33,5 @@ SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
 SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=2592000)  # 30 days
 SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool("DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True)
 SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
+
+CSRF_TRUSTED_ORIGINS = ['HTTPS://web-production-8c284.up.railway.app']
