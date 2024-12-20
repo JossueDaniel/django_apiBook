@@ -41,3 +41,53 @@ git clone https://github.com/JossueDaniel/django_apiBook.git
 ```bash
 cd django_apiBook
 ```
+
+### 2. Establecer las variables de entorno
+Crear un archivo .env en la raíz del proyecto
+```plaintext
+SECRET_KEY=clave-secreta-django
+```
+
+### 3. Construir y levantar los contenedores
+```bash
+docker compose up -d --build
+```
+
+- El contendor de la aplicación web se ejecuta en entrono de desarrollo, si se requiere ejecutar en un entorno de producción se debe especificar en la variable de entorno del contenedor en el archivo compose.yml las configuraciones del archivo prod.py que es para entorno de producción. **(opcional)** 
+
+```plaintex
+DJANGO_SETTINGS_MODULE=django_project.settings.prod
+```
+
+### 4. Ejecutar las migraciones
+```bash
+docker compose exec web python manage.py migrate
+```
+
+### 5. Crear un superusuario (opcional)
+```bash
+docker compose exec web python manage.py createsuperuser
+```
+
+### 6. Ingresar a la aplicación
+http://localhost:8000/
+
+## Endpoints disponibles
+
+### Author 
+| Método   | Endpoint            | Descripción                    |
+|----------|---------------------|--------------------------------|
+| GET      | /api/author/        | Lista todos los autores        |
+| POST     | /api/author/        | Crea un nuevo autor            |
+| GET      | /api/author/{id}/   | Obtiene detalles de un autor   |
+| PUT      | /api/author/{id}/   | Actualiza un autor             |
+| DELETE   | /api/author/{id}/   | Elimina  un autor              |
+
+### Book 
+| Método   | Endpoint            | Descripción                    |
+|----------|---------------------|--------------------------------|
+| GET      | /api/libro/         | Lista todos los libros         |
+| POST     | /api/libro/         | Crea un nuevo libro            |
+| GET      | /api/libro/{id}/    | Obtiene detalles de un libro   |
+| PUT      | /api/libro/{id}/    | Actualiza un libro             |
+| DELETE   | /api/libro/{id}/    | Elimina  un libro              |
