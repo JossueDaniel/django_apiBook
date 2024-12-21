@@ -11,6 +11,6 @@ RUN pip install --no-cache-dir -r /code/requirements.txt
 
 COPY . /code/
 
-RUN python code/manage.py collectstatic --no-input --settings=django_project.settings.prod
+RUN python manage.py collectstatic --no-input --settings=django_project.settings.prod
 
-CMD ["gunicorn", "django_project.wsgi:application", "--bind", "0.0.0.0:8000", "--env", "DJANGO_SETTINGS_MODULE=django_project.settings.prod"]
+CMD ["gunicorn", "django_project.wsgi:application", "--bind", "0.0.0.0:8000"]
