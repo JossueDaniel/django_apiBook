@@ -2,7 +2,7 @@
 services:
   db:
     image: postgres:latest
-    restart: always
+    restart: "on-failure:3"
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
@@ -12,7 +12,7 @@ services:
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
-    restart: always
+    restart: "on-failure:3"
     volumes:
       - .:/code
     ports:
